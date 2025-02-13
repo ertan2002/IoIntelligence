@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/.vs
+/src/IoIntelligence/bin
+/src/IoIntelligence/.vs
+/src/IoIntelligence/obj
