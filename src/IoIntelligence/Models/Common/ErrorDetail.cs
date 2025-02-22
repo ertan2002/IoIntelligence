@@ -1,16 +1,12 @@
 ﻿using Newtonsoft.Json;
 
-namespace IoIntelligence.Client.Models.Common
+namespace IoIntelligence.Client.Models.Common;
+
+public class ErrorDetail
 {
-    public class ErrorDetail
-    {
-        [JsonProperty("loc")]
-        public List<string> Location { get; set; } = new();
+    [JsonProperty("loc")] public List<string> Location { get; set; } = new();
 
-        [JsonProperty("msg")]
-        public string Message { get; set; }
+    [JsonProperty("msg")] public string Message { get; set; }
 
-        [JsonProperty("type")]
-        public string Type { get; set; }
-    }
+    [JsonProperty("type")] public string ErrorType { get; set; }
 }
