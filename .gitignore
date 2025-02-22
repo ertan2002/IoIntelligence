@@ -7,3 +7,6 @@
 /src/IoIntelligence/bin
 /src/IoIntelligence/.vs
 /src/IoIntelligence/obj
+/src/.idea/.idea.IoIntelligence/.idea
+/src/IoIntelligence.Console
+/src/IoIntelligence.sln.DotSettings.user
