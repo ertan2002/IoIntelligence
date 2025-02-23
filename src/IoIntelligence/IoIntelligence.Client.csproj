@@ -6,9 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>IONET.IOIntelligence</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>BOSS</Authors>
     <Description>A lightweight and intuitive .NET API wrapper for IO Intelligence. This package simplifies access to IO AI models and agents by abstracting the underlying HTTP communication. Integrate advanced AI capabilities into your application effortlessly without managing low-level network details.</Description>
+    <PackageProjectUrl>https://io.net/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ertan2002/IoIntelligence</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
