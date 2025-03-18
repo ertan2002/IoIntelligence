@@ -1,0 +1,37 @@
+---
+description: how i write console
+globs: 
+alwaysApply: false
+---
+# Console Application Development Guidelines
+
+## Workflow and Development Environment
+- Use **Visual Studio Enterprise** or **Visual Studio Code** for developing console apps.
+- Perform code editing, AI suggestions, and refactoring in **Cursor AI**.
+- Compile and launch console apps primarily through Visual Studio Enterprise.
+
+## Code Style and Structure
+- Write **idiomatic, efficient C# code** following .NET conventions.
+- Organize code into logical classes and methods, even for small applications.
+- Use **async/await** for I/O-bound tasks (e.g., file or network operations) to avoid blocking.
+
+## Naming Conventions
+- **Private variables and methods**: Start with a lowercase letter (e.g., `_myField`, `myMethod`).
+- **Public, protected, and other members**: Start with an uppercase letter (e.g., `MyProperty`, `MyMethod`).
+
+## Console Application Specific Guidelines
+- Use **Dependency Injection** for managing services, if the app’s complexity justifies it.
+- Leverage modern C# features (e.g., records, pattern matching) for cleaner code.
+
+## Error Handling and Validation
+- Implement robust error handling for exceptions and invalid user inputs.
+- Use **logging** (e.g., Serilog, NLog) to track errors and runtime events.
+
+## Performance Optimization
+- Optimize for performance, especially in long-running or resource-heavy tasks.
+- Use **asynchronous programming** where appropriate to improve responsiveness.
+
+## Clean Code and Maintainability
+- Write **clean, readable code** with clear separation of concerns.
+- Avoid duplication by reusing methods or utilities.
+- Keep the `Main` method simple, delegating logic to separate classes or methods.

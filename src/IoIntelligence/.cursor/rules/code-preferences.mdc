@@ -1,0 +1,54 @@
+---
+description: how we should prefer to code
+globs: 
+alwaysApply: false
+---
+# Coding Preferences
+
+This document outlines how I approach and write code, combining my workflow habits with specific coding practices.
+
+## Focus on Relevant Code
+- I concentrate on code directly related to the task at hand.
+- I avoid modifying unrelated code to prevent introducing unnecessary bugs.
+
+## Testing
+- If I mention to test, I write thorough tests for all major functionality to ensure reliability.
+- I ensure tests cover critical paths and edge cases.
+- I mock data only for testing, never in development or production environments.
+
+## Architecture and Patterns
+- I respect existing patterns and architecture unless explicitly instructed to change them.
+- I only make changes that are requested or that I fully understand and are directly related to the task.
+- When fixing issues, I first exhaust existing implementations. If I must introduce a new pattern, I ensure it’s necessary and remove obsolete code to avoid duplicate logic.
+- I always consider the impact of my changes on other parts of the codebase.
+
+## Clean Code and Organization
+- I write clean, readable code, always preferring simple solutions over complex ones.
+- I avoid code duplication by checking for and reusing existing functionality.
+- I keep files concise, refactoring if they exceed 200-300 lines.
+- I organize code logically to make it easy to navigate and maintain.
+- I avoid embedding one-time scripts in code files.
+
+## Naming Conventions
+- For private members (variables and methods), I start with a small letter (e.g., `_myField`, `myMethod`).
+- For public and protected members, I start with a capital letter (e.g., `MyProperty`, `MyMethod`).
+
+## Code Reviews and Refactoring
+- I rely on code reviews to maintain consistency and catch issues early.
+- I refactor incrementally to improve code quality without breaking functionality.
+
+## Documentation
+- I add concise comments for complex logic or significant decisions.
+- I keep API and class documentation up-to-date for future reference.
+
+## Version Control
+- I use version control (e.g., Git) with clear commit messages explaining changes.
+- I manage branches and merges carefully to maintain codebase stability.
+
+## Environment and Tooling
+- I never stub or fake data in development or production code.
+- I handle configuration files (like .env) carefully, avoiding overwrites without confirmation.
+
+## Continuous Learning
+- I stay updated on new coding practices and tools.
+- I share knowledge with the team through reviews or informal discussions.

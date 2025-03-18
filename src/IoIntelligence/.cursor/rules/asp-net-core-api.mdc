@@ -1,0 +1,49 @@
+---
+description: how I should write asp.net core api
+globs: 
+alwaysApply: false
+---
+# ASP.NET Core API Development Guidelines
+
+## Workflow and Development Environment
+- Use **Visual Studio Enterprise** for running, debugging, and testing APIs.
+- Perform code editing, AI suggestions, and refactoring in **Cursor AI**.
+- Compile and launch APIs primarily through Visual Studio Enterprise.
+
+## Code Style and Structure
+- Write **idiomatic, efficient C# code** adhering to .NET conventions.
+- Follow **RESTful principles**: Use appropriate HTTP methods (GET, POST, etc.) and status codes (200, 404, etc.).
+- Use **async/await** for I/O-bound operations (e.g., database queries, external calls) to improve scalability.
+
+## Naming Conventions
+- **Private variables and methods**: Start with a lowercase letter (e.g., `_myField`, `myMethod`).
+- **Public, protected, and other members**: Start with an uppercase letter (e.g., `MyProperty`, `MyMethod`).
+
+## ASP.NET Core Specific Guidelines
+- Use **Dependency Injection** to manage services, repositories, and other dependencies.
+- Structure projects into **Controllers**, **Services**, and **Repositories** for clear separation.
+- Leverage modern C# features (e.g., records, pattern matching) for cleaner, more efficient code.
+
+## Error Handling and Validation
+- Implement centralized error handling with **middleware** or **exception filters**.
+- Use **logging frameworks** (e.g., Serilog, NLog) to capture errors and events.
+- Apply **model validation** using DataAnnotations or FluentValidation for incoming requests.
+
+## Performance Optimization
+- Use **asynchronous programming** to enhance throughput and scalability.
+- Implement **caching** (e.g., in-memory or distributed like Redis) to reduce database load.
+- Optimize database access with **Entity Framework Core** best practices (e.g., efficient queries, lazy loading).
+
+## Security and Authentication
+- Secure endpoints with **authentication** (e.g., JWT, OAuth) and **authorization** mechanisms.
+- Enforce **HTTPS** for all communications.
+- Protect against vulnerabilities like CSRF, SQL injection, and XSS.
+
+## API Documentation and Testing
+- Generate **Swagger/OpenAPI** documentation for API endpoints.
+- Test APIs with tools like **Postman** or **curl** to verify functionality.
+
+## Clean Code and Maintainability
+- Write **clean, readable code** with clear separation of concerns.
+- Avoid duplication by reusing services, utilities, or helper methods.
+- Keep controllers lean, delegating business logic to services or repositories.

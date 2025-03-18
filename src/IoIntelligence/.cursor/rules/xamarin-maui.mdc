@@ -1,0 +1,65 @@
+---
+description: xamarin and maui rules
+globs: 
+alwaysApply: false
+---
+# Xamarin and MAUI Development Guidelines
+
+## Workflow and Development Environment
+- Use **Visual Studio Enterprise** as the primary tool for running, debugging mobile applications.
+- Perform code editing, AI-assisted suggestions, and refactoring in **Cursor AI** for efficiency.
+- Compile and launch mobile apps exclusively through Visual Studio Enterprise.
+
+## Code Style and Structure
+- Write **idiomatic, efficient C# code** following .NET conventions for readability and performance.
+- Use **XAML** for UI development, leveraging data binding and the **MVVM pattern** to separate UI from logic.
+- Implement **async/await** for all non-blocking operations (e.g., network calls, file I/O) to keep the UI responsive.
+- Eliminate code duplication by reusing shared utilities, services, or methods.
+
+## Naming Conventions
+- **Private variables and methods**: Start with a lowercase letter (e.g., `_myField`, `myMethod`).
+- **Public, protected, and other members**: Start with an uppercase letter (e.g., `MyProperty`, `MyMethod`).
+
+## Xamarin and MAUI Specific Guidelines
+- Maximize **code sharing** across platforms (iOS, Android) while utilizing platform-specific APIs when needed.
+- Use **Dependency Injection** to manage services and dependencies cleanly.
+- Organize projects into **Models**, **Views**, and **ViewModels**, adhering strictly to the MVVM pattern.
+- Leverage modern C# features (e.g., records, pattern matching) to write concise, efficient code.
+
+## Error Handling and Validation
+- Implement robust error handling for mobile-specific issues (e.g., network drops, permission denials).
+- Use **mobile-friendly logging** (e.g., Xamarin.Essentials or custom solutions) to track errors and events.
+- Apply **form validation** using libraries like FluentValidation or built-in data-binding mechanisms.
+
+## Performance Optimization
+- Optimize for mobile constraints, such as limited memory and CPU, by minimizing resource usage.
+- Use **asynchronous operations** to avoid UI blocking and prevent ANR (Application Not Responding) issues on Android.
+- Avoid synchronous calls that could degrade performance or user experience.
+
+## Caching Strategies
+- Implement **data caching** for frequently accessed data to reduce network calls and improve speed.
+- Use **SQLite** or similar local storage for offline data persistence and quick retrieval.
+
+## State Management
+- Handle application state with care, accounting for mobile lifecycle events (e.g., suspension, termination).
+- Use the **Repository pattern** for consistent data access and state management.
+
+## API Design and Integration
+- Use **HttpClient** for API calls, with proper error handling and retry logic.
+- Design for **offline support**, syncing data when connectivity is restored.
+
+
+## Security and Authentication
+- Store sensitive data (e.g., tokens) in **platform-specific secure storage** (e.g., Keychain on iOS, Keystore on Android).
+- Enforce **HTTPS** for all network communications.
+- Request **permissions** at runtime, following platform best practices.
+
+## Bluetooth and BLE
+- Implement **Bluetooth and BLE** efficiently, focusing on reliable connections and data transfers.
+- Handle edge cases like disconnections and timeouts gracefully.
+- Use **platform-specific APIs** (e.g., CoreBluetooth for iOS, BluetoothAdapter for Android) as needed.
+
+## Clean Code and MVVM
+- Strictly adhere to the **MVVM pattern**: Keep ViewModels lightweight and focused on UI logic.
+- Place business logic in services or models to maintain clear separation of concerns.
+- Write **clean, readable code** with no duplication, ensuring long-term maintainability.
