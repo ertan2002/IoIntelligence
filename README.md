@@ -281,6 +281,86 @@ Console.WriteLine("Translated Text: " + translationResult.TranslatedText);
 ```
 For the *TargetLanguage* property, you can specify the language using either its **ISO 639-1** code (e.g., "en" for English or "es" for Spanish) or its full English name (e.g., "English" or "Spanish").
 
+# Vision Capabilities
+
+IO Intelligence now supports image analysis using advanced vision models. This feature allows you to upload images via URL and get AI-powered descriptions and analyses.
+
+## Supported Vision Models
+
+Currently, two vision models are available:
+- `meta-llama/Llama-3.2-90B-Vision-Instruct` - Meta's powerful vision model
+- `Qwen/Qwen2-VL-7B-Instruct` - Qwen's vision-language model
+
+For convenience, these are accessible through the `VisionModel` enum:
+```csharp
+VisionModel.Llama32Vision  // Uses meta-llama/Llama-3.2-90B-Vision-Instruct
+VisionModel.Qwen2Vision    // Uses Qwen/Qwen2-VL-7B-Instruct
+```
+
+## Basic Image Analysis Example
+
+Here's a simple example of analyzing an image:
+
+```csharp
+// Initialize the client
+var apiKey = "YOUR_API_KEY_HERE";
+IIoIntelligenceClient client = new IoIntelligenceClient(apiKey);
+
+// Create a vision request using the factory
+var request = VisionModelFactory.CreateVisionRequest(
+    VisionModel.Llama32Vision,  // Select the vision model
+    "https://example.com/your-image.jpg",  // URL to your image
+    "What is in this image?"  // Optional prompt (default)
+);
+
+// Send the request to the API
+var response = await client.Models.CreateChatCompletionAsync(request);
+
+// Get the AI's analysis
+string imageDescription = SanitizeResponse(response.Choices[0].Message.Content);
+Console.WriteLine("Image Analysis: " + imageDescription);
+```
+## Advanced Usage: Image Conversation
+
+You can also incorporate images into a back-and-forth conversation:
+
+```csharp
+// Start a conversation
+var request = new ChatCompletionRequest
+{
+    Model = VisionModelFactory.GetModelString(VisionModel.Llama32Vision),
+    Messages = new List<ChatCompletionMessage>
+    {
+        new ChatCompletionMessage { Role = "system", Content = "You are a visual analysis assistant." },
+        new ChatCompletionMessage { Role = "user", Content = "I have some photos to analyze." }
+    }
+};
+
+// Get initial response
+var initialResponse = await client.Models.CreateChatCompletionAsync(request);
+request.Messages.Add(initialResponse.Choices[0].Message);
+
+// Add an image to the conversation
+request.Messages.Add(VisionChatMessageExtensions.CreateImageMessage(
+    "What can you tell me about this photo?",
+    "https://example.com/vacation-photo.jpg"
+));
+
+// Get the image analysis
+var imageResponse = await client.Models.CreateChatCompletionAsync(request);
+request.Messages.Add(imageResponse.Choices[0].Message);
+
+// Continue the conversation with a follow-up question
+request.Messages.Add(new ChatCompletionMessage { 
+    Role = "user", 
+    Content = "What time of day do you think this was taken?" 
+});
+
+// Get the final response
+var finalResponse = await client.Models.CreateChatCompletionAsync(request);
+Console.WriteLine(SanitizeResponse(finalResponse.Choices[0].Message.Content));
+```
+
 # Final Notes
 I've created a Telegram bot using the IO Chat Model as an example. You can use and extend it as needed (for instance, by implementing additional agents).
 
