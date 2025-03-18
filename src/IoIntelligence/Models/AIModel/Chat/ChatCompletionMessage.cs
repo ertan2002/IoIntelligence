@@ -2,6 +2,7 @@
 
 namespace IoIntelligence.Client.Models.AIModel.Chat;
 
+[JsonConverter(typeof(ChatCompletionMessageJsonConverter))]
 public class ChatCompletionMessage
 {
     [JsonProperty("role")] public string Role { get; set; }
